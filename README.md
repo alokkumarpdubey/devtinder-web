@@ -101,3 +101,12 @@ Refactor the project
     - create `src/utils/constants.js` file to store the API URL and endpoints
     - use the constants in the components instead of the raw URLs and endpoints
 
+Body component
+    - fetch the user data from the server using profile/view api call
+    - dispatch the addUser action with the user data received from the server
+    - display the user data in the navbar
+    - if user is not logged in, redirect to login page
+    - Other routes should not be accessible if user is not logged in
+    - use `useNavigate` hook to navigate to the login page if user is not logged in
+        - `const navigate = useNavigate();`
+        - `navigate("/login");`
