@@ -9,6 +9,7 @@ import { API_URL, LOGIN_API } from "../utils/constants";
 const Login = () => {
   const [email, setEmail] = useState("alok@gmail.com");
   const [password, setPassword] = useState("Password@1234");
+  const [error, setError] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ const Login = () => {
       navigate("/feed");
     } catch (error) {
       console.log("LOGIN ERROR: ", error);
+      setError(error?.response?.data || "Something went wrong");
     }
   };
 
@@ -61,6 +63,7 @@ const Login = () => {
               />
             </label>
           </div>
+          <p className="text-error">{error}</p>
           <div className="card-actions justify-end mt-5">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login

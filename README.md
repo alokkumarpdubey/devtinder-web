@@ -110,3 +110,7 @@ Body component
     - use `useNavigate` hook to navigate to the login page if user is not logged in
         - `const navigate = useNavigate();`
         - `navigate("/login");`
+
+Add error handling in Login component
+integrate logout api call in NavBar component
+
