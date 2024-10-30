@@ -38,3 +38,27 @@ Install daisyUI as a Tailwind CSS plugin
 Add navbar to `src/App.jsx` file
     - example: https://daisyui.com/components/navbar/
 
+Add footer to `src/App.jsx` file
+    - example: https://daisyui.com/components/footer/
+
+Create `src/NavBar.jsx` file and separate the navbar component from `src/App.jsx` file
+Create `src/Footer.jsx` file and separate the footer component from `src/App.jsx` file
+
+Routing in React
+    - install react-router-dom: `npm install react-router-dom`
+    - in `src/App.jsx` file, import `BrowserRouter` from `react-router-dom` and wrap the entire app with it
+    - now you can use `Routes` and `Route` components to create routes in your app
+        - example: https://reactrouter.com/en/main/start/tutorial
+    - Prepare the `Body` component to be the parent of all routes
+        - import `Outlet` from `react-router-dom`
+        - use `Route` components to define the routes that are children of `Body`
+
+        Body
+            NavBar
+            Routes=/ => Feed
+            Routes=/login => Login
+            Routes=/connections => Connections
+            Routes=/profile => Profile
+            Footer
+    
+    
