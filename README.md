@@ -61,4 +61,43 @@ Routing in React
             Routes=/profile => Profile
             Footer
     
-    
+Login Page
+    - create `src/Login.jsx` file
+    - login form with email and password fields
+        - use `useState` to manage the email and password
+        - in input fields, use `value` and `onChange` to manage the input values
+        - onChange={(e) => setEmail(e.target.value)}
+        - add an event handler to the login button
+        - call the `handleLogin` function
+    - use axios to send a POST request to the server to login
+    - use the `axios` library to make a POST request to the server to login
+    - axios.post("http://localhost:3000/login", {email, password}, {withCredentials: true})
+    - handle the response and error in the `handleLogin` function
+    - to enable cors in the server, add `cors` middleware to the server
+        - `npm install cors`
+        - `app.use(cors({credentials: true, origin: "http://localhost:5173"}));`
+    - to enable cookies in the browser, add `{withCredentials: true}` to the axios request
+
+Redux Toolkit : https://redux-toolkit.js.org/introduction/getting-started
+    - install redux toolkit: `npm install @reduxjs/toolkit react-redux`
+    - create `src/utils/userSlice.js` file
+    - create a slice with `createSlice` function
+    - add reducers to the slice
+    - export the slice actions and reducer
+    - use the slice actions and reducer in the component
+    - create a `appStore.js` file to create the redux store
+    - in `src/App.jsx` file, import `Provider` from `react-redux` and wrap the entire app with it, passing the `appStore` as a prop
+    - use `useDispatch` to dispatch the user actions in the component (to add data to the redux store)
+        - dipatch the `addUser` action in the `handleLogin` function after the response is received
+        - `const dispatch = useDispatch();`
+        - `dispatch(addUser(user));`
+    - use `useSelector` to access the user state in the component (to access data from the redux store)
+        - in navbar component, access the user state
+            - `import { useSelector } from "react-redux";`
+        - `const user = useSelector((store) => store.user);`
+    - dispatch the `addUser` action in the `handleLogin` function
+
+Refactor the project
+    - create `src/utils/constants.js` file to store the API URL and endpoints
+    - use the constants in the components instead of the raw URLs and endpoints
+
