@@ -159,3 +159,8 @@ Requests send and review api calls
     - use axios to send a POST request to the server to send a request
     - update removeFeeds reducer in feedSlice to remove the feed from the redux store
 
+SignUp page
+    - add form fields for the user data
+    - use axios to send a POST request to the server to signup
+    - use the `axios` library to make a POST request to the server to signup
+    - axios.post("http://localhost:3000/signup", {userData}, {withCredentials: true})`

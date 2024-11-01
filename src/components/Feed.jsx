@@ -27,10 +27,11 @@ const Feed = () => {
   if (!feed) return null;
   if (feed.feeds.length === 0)
     return (
-      <div className="flex justify-center items-center my-10">
+      <div className="flex flex-col justify-center items-center my-10">
         <div className="text-2xl font-bold">
           No feeds available to show at the moment!!
         </div>
+        <button className="btn btn-accent mt-20" onClick={fetchFeeds}>Check for new feeds</button>
       </div>
     );
 

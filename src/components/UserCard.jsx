@@ -52,7 +52,7 @@ const UserCard = ({ data }) => {
         ) : (
           <p>{gender}</p>
         )}
-        <p>{about}</p>
+        <p className="line-clamp-3">{about}</p>
         <p>Skills: {userSkills}</p>
         <div className="card-actions justify-end">
           <button
