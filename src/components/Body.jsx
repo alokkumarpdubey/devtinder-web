@@ -24,14 +24,12 @@ const Body = () => {
     try {
       const response = await axios.get(API_URL + PROFILE_API, {
         withCredentials: true,
-      });
-      console.log(response);
+      });      
       dispatch(addUser(response.data.data));
     } catch (error) {
       if (error.status === 401) {
         navigate("/login");
-      }
-      console.log(error);
+      }      
     }
   };
 

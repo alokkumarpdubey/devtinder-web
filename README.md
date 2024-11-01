@@ -114,3 +114,10 @@ Body component
 Add error handling in Login component
 integrate logout api call in NavBar component
 
+Feed Component
+    - fetch the feeds from the server using user/feed api call
+    - dispatch the addFeeds action with the feeds data received from the server
+    - display the feeds in the feed component
+    UserCard Component
+        - display the user data in the user card component
+        - add accept and reject buttons

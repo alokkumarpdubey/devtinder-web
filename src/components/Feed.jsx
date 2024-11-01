@@ -8,14 +8,14 @@ import UserCard from "./UserCard";
 const Feed = () => {
   const dispatch = useDispatch();
   const feed = useSelector((store) => store.feed);
-  console.log("User feeds => ", feed.feeds);
+  
   useEffect(() => {
     fetchFeeds();
   }, []);
 
   const fetchFeeds = async () => {
     try {
-      const response = await axios.get(API_URL + FEED_API+'?page=1&limit=1', {
+      const response = await axios.get(API_URL + FEED_API+'?page=1&limit=3', {
         withCredentials: true,
       });
       dispatch(addFeeds(response.data.data));

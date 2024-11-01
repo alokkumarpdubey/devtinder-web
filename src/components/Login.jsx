@@ -15,7 +15,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    console.log(email, password);
     try {
       const response = await axios.post(
         API_URL+LOGIN_API,
@@ -24,8 +23,7 @@ const Login = () => {
           password,
         },
         { withCredentials: true }
-      );
-      console.log("LOGIN RESPONSE: ", response);
+      );      
       dispatch(addUser(response.data));
       navigate("/feed");
     } catch (error) {
