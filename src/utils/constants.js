@@ -6,3 +6,5 @@ export const FEED_API = "/user/feed";
 export const UPDATE_PROFILE_API = "/profile/edit";
 export const CONNECTIONS_API = "/user/connections";
 export const REQUESTS_API = "/user/requests/received";
+export const REQUESTS_REVIEW_API = "/request/review/";
+export const REQUESTS_SEND_API = "/request/send/";

@@ -121,3 +121,41 @@ Feed Component
     UserCard Component
         - display the user data in the user card component
         - add accept and reject buttons
+
+Profile Component
+    - fetch the user data from the server using profile/view api call
+    - dispatch the addUser action with the user data received from the server
+    - display the user data in the profile component
+    - Create EditProfile component
+        - add form fields for the user data
+        - use axios to send a PUT request to the server to update the user data
+        - use the `axios` library to make a POST request to the server to update the user data
+        - axios.put("http://localhost:3000/profile/edit", {userData}, {withCredentials: true})
+    
+Connections Component
+    - fetch the connections from the server using user/connections api call
+    - create connectionSlice to manage the connections state
+    - add reducers to the slice
+    - export the slice actions and reducer
+    - use the slice actions and reducer in the component
+    - dispatch the addConnections action with the connections data received from the server
+    - display the connections in the connections component
+
+Requests Component
+    - fetch the requests from the server using user/requests/received api call
+    - create requestsSlice to manage the requests state
+    - add reducers to the slice
+    - export the slice actions and reducer
+    - use the slice actions and reducer in the component
+    - dispatch the addRequests action with the requests data received from the server
+    - display the requests in the requests component
+
+Requests send and review api calls
+    - add onclick handlers to the accept and reject buttons in the Requests component
+    - use axios to send a POST request to the server to review a request
+    - update removeRequests reducer in requestsSlice to remove the request from the redux store
+    
+    - add onclick handlers to the ignore and interested buttons in the UserCard component
+    - use axios to send a POST request to the server to send a request
+    - update removeFeeds reducer in feedSlice to remove the feed from the redux store
+

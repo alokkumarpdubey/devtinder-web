@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-import { API_URL, REQUESTS_API } from "../utils/constants";
-import { addRequests } from "../utils/requestsSlice";
+import { API_URL, REQUESTS_API, REQUESTS_REVIEW_API } from "../utils/constants";
+import { addRequests, removeRequests } from "../utils/requestsSlice";
 
 const Requests = () => {
   const dispatch = useDispatch();
-
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
   const data = useSelector((store) => store.requests.Requests);
 
   useEffect(() => {
@@ -20,6 +21,28 @@ const Requests = () => {
         withCredentials: true,
       });
       dispatch(addRequests(response.data.data));
+    } catch (error) {
+      console.log("REQUESTS ERROR: ", error);
+    }
+  };
+
+  const handleRequests = async (action, requestId) => {
+    try {
+      const response = await axios.post(
+        API_URL + REQUESTS_REVIEW_API + action + "/" + requestId,
+        {},
+        { withCredentials: true }
+      );
+      console.log("RESPONSE: ", response);
+      if (response.status === 200) {
+        dispatch(removeRequests(requestId));
+        console.log("RESPONSE: ", response.data.message);
+        setToastMessage(response.data.message);
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, 3000);
+      }
     } catch (error) {
       console.log("REQUESTS ERROR: ", error);
     }
@@ -65,12 +88,29 @@ const Requests = () => {
             </div>
 
             <div className="w-1/3 card-actions justify-center">
-              <button className="btn btn-primary">Reject</button>
-              <button className="btn btn-secondary">Accept</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => handleRequests("rejected", request?._id)}
+              >
+                Reject
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={() => handleRequests("accepted", request?._id)}
+              >
+                Accept
+              </button>
             </div>
           </div>
         );
       })}
+      {showToast && (
+        <div className="toast toast-top toast-end mt-14">
+          <div className="alert alert-success">
+            <span>{toastMessage}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
