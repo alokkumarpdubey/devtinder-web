@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const UserCard = ({ data }) => {
   const { firstName, lastName, photo, about, age, gender, skills } = data;
-  const userSkills = skills && skills.length ? skills.split(",") : "";
+  const userSkills = skills && skills.length ? skills.join(", ") : "";
   console.log("data => ", data);
   console.log("Skills => ", skills);
   console.log("userSkills => ", userSkills);
@@ -43,7 +43,6 @@ UserCard.propTypes = {
       photo: PropTypes.string.isRequired,
       about: PropTypes.string.isRequired,
       age: PropTypes.number,
-      gender: PropTypes.string.isRequired,
       skills: PropTypes.arrayOf(PropTypes.string)
     }).isRequired
   };

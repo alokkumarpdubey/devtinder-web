@@ -4,3 +4,5 @@ export const PROFILE_API = "/profile/view";
 export const LOGOUT_API = "/logout";
 export const FEED_API = "/user/feed";
 export const UPDATE_PROFILE_API = "/profile/edit";
+export const CONNECTIONS_API = "/user/connections";
+export const REQUESTS_API = "/user/requests/received";
